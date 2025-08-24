@@ -1,0 +1,15 @@
+export const initialFormState = {
+  price: "",
+  bedrooms: "",
+  bathrooms: "",
+  size: "",
+  streetName: "",
+  houseNumber: "",
+  numberAddition: "",
+  zip: "",
+  city: "",
+  constructionYear: "",
+  hasGarage: "",
+  description: "",
+  image: null,
+};

@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap");
+:root {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Primary Colors */
+  --color-primary: #eb5440; /* RGB: 235, 84, 64 */
+  --color-primary-dark: #000000; /* RGB: 0, 0, 0 */
+
+  /* Secondary Color */
+  --color-secondary: #4a4b4c; /* RGB: 74, 75, 76 */
+
+  /* Tertiary Colors */
+  --color-tertiary-light: #e8e8e8; /* RGB: 232, 232, 232 */
+  --color-tertiary-dark: #c3c3c3; /* RGB: 195, 195, 195 */
+
+  /* Background Colors */
+  --color-background-1: #f6f6f6; /* RGB: 246, 246, 246 */
+  --color-background-2: #ffffff; /* RGB: 255, 255, 255 */
+
+  /* Utility Colors */
+  --color-hyperlink: #067bc2; /* RGB: 6, 123, 194 */
+
+  /* Base text and background */
+  --text-color: var(--color-secondary);
+  --background-color: var(--color-background-1);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: var(--color-background-2);
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+  @media (max-width: 768px) {
+    :root {
+      --font-size-body: 12px;
+      --font-size-listing: 12px;
+      --font-size-error: 12px;
+      --font-size-input: 12px;
+    }
+  }
+}
