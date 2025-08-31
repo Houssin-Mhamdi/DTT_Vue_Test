@@ -367,10 +367,19 @@ const garageOptions = ["Yes", "No"];
 
 <style scoped>
 /* --- General Page Styling --- */
+
 .create-listing-page {
-  background-color: #f7f7f8;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 20%
+    ),
+    url("../assets/img_background@3x.png");
+  background-size: 100% 30%; 
+  background-position: bottom center;
+  background-repeat: no-repeat;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 .content-wrapper {
   max-width: 400px;
@@ -508,6 +517,7 @@ textarea:focus {
   cursor: pointer;
   width: 100%;
   transition: background-color 0.2s;
+  margin-bottom: 2rem;
 }
 .post-btn:hover {
   background-color: #d34835;
@@ -528,7 +538,8 @@ textarea:focus {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 3rem 4rem;
+    padding: 2rem 11.5rem;
+    margin-top: 2rem;
   }
   .content-wrapper {
     background: none;
@@ -557,6 +568,7 @@ textarea:focus {
   }
   .post-btn {
     width: auto;
+    margin-bottom: 0;
   }
 }
 </style>

@@ -97,7 +97,7 @@ const { resultsCountMessage } = useSearchResults(
       <div class="controls-container">
         <SearchBar :icon="SearchToggle" v-model="rawSearchQuery" />
         <div class="filter-sort-group">
-          <!-- NEW: Button to toggle the madeByMe filter -->
+   
           <button
             @click="showOnlyMadeByMe = !showOnlyMadeByMe"
             :class="{ active: showOnlyMadeByMe }"
@@ -166,7 +166,7 @@ const { resultsCountMessage } = useSearchResults(
 .filter-sort-group {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Adjust gap as needed */
+  gap: 1rem;
 }
 
 .made-by-me-btn {
@@ -175,19 +175,19 @@ const { resultsCountMessage } = useSearchResults(
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  background-color: #e8e8e8; /* Default color */
+  background-color: #e8e8e8; 
   color: #333;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .made-by-me-btn.active {
-  background-color: var(--color-primary); /* Active color */
+  background-color: var(--color-primary);
   color: #fff;
 }
 /* --- RESPONSIVE STYLES for mobile --- */
 @media (max-width: 767px) {
   .page-container {
-    padding: 16px 12px;
+    padding: 0px 12px;
   }
   .controls-container {
     flex-direction: column;

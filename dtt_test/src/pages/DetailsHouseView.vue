@@ -1,6 +1,6 @@
 <script setup>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { computed, onMounted, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { useHouses } from "@/composables/useHouses";
 import HouseDetail from "@/components/HouseDetail.vue";
 import StatusDisplay from "@/components/StatusDisplay.vue";
@@ -11,12 +11,22 @@ import { useModal } from "@/composables/useModal";
 import ConfirmationModal from "@/components/ConfirmationModal.vue";
 
 const route = useRoute();
+const router = useRouter();
 const { houses, isLoading, errorMessage } = useHouses();
 const houseId = computed(() => route.params.id);
 const { currentHouse, recommendedHouses } = useHouseDetails(houses, houseId);
 const { isDeleting, editHouse, requestDelete, confirmDelete } =
   useHouseActions();
 const { isModalVisible, hideModal } = useModal();
+const item = ref(null);
+
+onMounted(() => {
+  const houseId = route.params.id;
+  item.value = houses.value.find((house) => house.id == houseId);
+  if (!item.value) {
+    router.replace({ name: "NotFound", params: { catchAll: "*" } });
+  }
+});
 </script>
 
 <template>

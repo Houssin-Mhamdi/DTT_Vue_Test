@@ -25,6 +25,7 @@ const emit = defineEmits(['create']);
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+      margin-top: 30px;
 }
 .page-header > button.action-btn {
   position: absolute;
@@ -33,7 +34,7 @@ const emit = defineEmits(['create']);
   transform: translateY(-50%);
 }
 .mobile-only {
-  display: none; /* Hide mobile elements by default */
+  display: none; 
 }
 
 

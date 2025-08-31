@@ -10,8 +10,10 @@ import constructionIcon from "@/assets/ic_construction_date@3x.png";
 import bedIcon from "@/assets/ic_bed@3x.png";
 import bathIcon from "@/assets/ic_bath@3x.png";
 import garageIcon from "@/assets/ic_garage@3x.png";
-import editIcon from "@/assets/ic_edit_white@3x.png";
-import deleteIcon from "@/assets/ic_delete_white@3x.png";
+import editIcon from "@/assets/ic_edit@3x.png";
+import deleteIcon from "@/assets/ic_delete@3x.png";
+import editIconwhite from "@/assets/ic_edit_white@3x.png";
+import deleteIconwhite from "@/assets/ic_delete_white@3x.png";
 import backArrowIcon from "@/assets/ic_back_white@3x.png";
 
 const props = defineProps({
@@ -50,13 +52,13 @@ function handleDeleteClick() {
           /></RouterLink>
           <div class="actions" v-if="currentHouse.madeByMe">
             <img
-              :src="editIcon"
+              :src="editIconwhite"
               alt="Edit"
               class="action-icon"
               @click="handleEditClick"
             />
             <img
-              :src="deleteIcon"
+              :src="deleteIconwhite"
               alt="Delete"
               class="action-icon"
               @click="handleDeleteClick"
@@ -88,33 +90,45 @@ function handleDeleteClick() {
         </div>
 
         <div class="info-grid">
-          <span class="info-item">
-            <img :src="locationIcon" alt="Location" />{{
-              currentHouse.location
-            }}
-          </span>
-          <span class="info-item">
-            <img :src="priceIcon" alt="Price" />€
-            {{ currentHouse.price.toLocaleString("nl-NL") }}
-          </span>
-          <span class="info-item">
-            <img :src="sizeIcon" alt="Size" />{{ currentHouse.size }} m²
-          </span>
-          <span class="info-item">
-            <img :src="constructionIcon" alt="Built in" />Built in
-            {{ currentHouse.constructionYear }}
-          </span>
-          <span class="info-item">
-            <img :src="bedIcon" alt="Bedrooms" />{{ currentHouse.bedrooms }}
-          </span>
-          <span class="info-item">
-            <img :src="bathIcon" alt="Bathrooms" />{{ currentHouse.bathrooms }}
-          </span>
-          <span class="info-item">
-            <img :src="garageIcon" alt="Garage" />{{
-              currentHouse.hasGarage ? "Yes" : "No"
-            }}
-          </span>
+          <!-- Row 1 -->
+          <div class="info-row">
+            <span class="info-item">
+              <img :src="locationIcon" alt="Location" />
+              {{ currentHouse.location }}
+            </span>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="info-row">
+            <span class="info-item">
+              <img :src="priceIcon" alt="Price" /> €
+              {{ currentHouse.price.toLocaleString("nl-NL") }}
+            </span>
+            <span class="info-item">
+              <img :src="sizeIcon" alt="Size" />
+              {{ currentHouse.size }} m²
+            </span>
+            <span class="info-item">
+              <img :src="constructionIcon" alt="Built in" />
+              Built in {{ currentHouse.constructionYear }}
+            </span>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="info-row">
+            <span class="info-item">
+              <img :src="bedIcon" alt="Bedrooms" />
+              {{ currentHouse.bedrooms }}
+            </span>
+            <span class="info-item">
+              <img :src="bathIcon" alt="Bathrooms" />
+              {{ currentHouse.bathrooms }}
+            </span>
+            <span class="info-item">
+              <img :src="garageIcon" alt="Garage" />
+              {{ currentHouse.hasGarage ? "Yes" : "No" }}
+            </span>
+          </div>
         </div>
 
         <p class="description">{{ currentHouse.description }}</p>
@@ -146,8 +160,6 @@ function handleDeleteClick() {
 .main-content {
   flex: 2;
   background: #fff;
-  padding: 24px;
-  border-radius: 8px;
 }
 
 .main-image {
@@ -155,7 +167,6 @@ function handleDeleteClick() {
   height: auto;
   max-height: 400px;
   object-fit: cover;
-  border-radius: 8px;
   margin-bottom: 24px;
 }
 
@@ -164,7 +175,7 @@ function handleDeleteClick() {
 }
 
 .header-actions {
-  display: none; /* Hidden on desktop */
+  display: none; 
 }
 
 .title-bar {
@@ -186,24 +197,32 @@ function handleDeleteClick() {
 }
 
 .action-icon {
-  width: 25px;
+  width: 20px;
   height: 20px;
   cursor: pointer;
 }
 
 .info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   margin-bottom: 24px;
   color: #555;
   font-size: 0.9rem;
+}
+
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
 }
 
 .info-item {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex: 0 1 auto;
 }
 
 .info-item img {
@@ -232,6 +251,13 @@ function handleDeleteClick() {
   flex-direction: column;
   gap: 20px;
 }
+.details-card {
+  padding: 24px;
+  margin-top: -24px;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
 
 /* --- RESPONSIVE STYLES --- */
 @media (max-width: 992px) {
@@ -240,7 +266,6 @@ function handleDeleteClick() {
     gap: 0;
   }
 
-  /* HIDE the desktop actions inside the title bar on mobile */
   .title-bar .actions {
     display: none;
   }
@@ -271,10 +296,9 @@ function handleDeleteClick() {
 
   .header-actions .action-icon,
   .header-actions .back-arrow-icon {
-    width: 24px;
-    height: 24px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+
     padding: 8px;
   }
 

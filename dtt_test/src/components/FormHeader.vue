@@ -28,16 +28,21 @@ defineEmits(["back"]);
 .form-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 h1 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #000;
-  text-align: left;
+
+  text-align: center;
+  margin-top: 20px;
   margin-bottom: 0;
+  flex-grow: 1;
 }
 
 .back-link {
@@ -52,6 +57,8 @@ h1 {
   color: var(--color-secondary);
   padding: 0;
   margin-bottom: -20px;
+  position: absolute;
+  left: 1rem; 
 }
 
 .back-icon {
@@ -67,6 +74,8 @@ h1 {
 @media (min-width: 1024px) {
   .form-header {
     display: block;
+    justify-content: flex-start;
+    width: auto;
   }
 
   h1,
@@ -75,8 +84,16 @@ h1 {
     text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
   }
 
+  h1 {
+    text-align: left;
+    flex-grow: 0;
+  }
+
   .back-link {
     margin-bottom: 2rem;
+ 
+    position: static;
+    left: auto;
   }
 
   .desktop-only-text {

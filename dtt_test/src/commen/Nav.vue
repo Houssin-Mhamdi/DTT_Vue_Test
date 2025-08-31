@@ -64,6 +64,7 @@ import { RouterLink } from "vue-router";
 .navbar-left {
   display: flex;
   align-items: center;
+  
 }
 
 .navbar-logo a {

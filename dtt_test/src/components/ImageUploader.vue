@@ -71,7 +71,6 @@ const removeImage = () => {
 </template>
 
 <style scoped>
-/* Copy all image-related styles here */
 .form-group label {
   margin-bottom: 0.5rem;
   font-weight: 600;

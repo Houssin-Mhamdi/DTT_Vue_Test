@@ -21,7 +21,7 @@ const goBack = () => {
 <style scoped>
 .header-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
 }
 
 .back-link {

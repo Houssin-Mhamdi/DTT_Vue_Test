@@ -22,6 +22,7 @@ import MobileNavBar from "./commen/MobileNavBar.vue";
 @media (max-width: 767px) {
   .main-content {
     padding-bottom: 65px;
+    padding-top: 0px;
   }
 }
 </style>

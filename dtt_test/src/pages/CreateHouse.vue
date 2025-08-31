@@ -191,9 +191,17 @@ const { garageOptions, goBack, handleImageUpload, removeImage, submitForm } =
 <style scoped>
 /* --- General Page Styling --- */
 .create-listing-page {
-  background-color: #f7f7f8;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 20%
+    ),
+    url("../assets/img_background@3x.png");
+  background-size: 100% 30%; /* Takes full width but only 30% of height */
+  background-position: bottom center;
+  background-repeat: no-repeat;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 .content-wrapper {
   max-width: 400px;
@@ -201,10 +209,10 @@ const { garageOptions, goBack, handleImageUpload, removeImage, submitForm } =
 }
 
 textarea.has-error {
-  border-color:  var(--color-primary);
+  border-color: var(--color-primary);
 }
 .error-message {
-  color:  var(--color-primary);
+  color: var(--color-primary);
   font-size: 0.75rem;
   margin-top: 0.25rem;
   display: block;
@@ -261,7 +269,7 @@ textarea {
 select:focus,
 textarea:focus {
   outline: none;
-  border-color:  var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 /* --- Image Upload --- */
@@ -320,7 +328,7 @@ textarea:focus {
   margin-top: 1rem;
 }
 .post-btn {
-  background-color:  var(--color-primary);
+  background-color: var(--color-primary);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -330,6 +338,7 @@ textarea:focus {
   cursor: pointer;
   width: 100%;
   transition: background-color 0.2s;
+  margin-bottom: 2rem;
 }
 .post-btn:hover {
   background-color: #d34835;
@@ -345,14 +354,14 @@ textarea:focus {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 3rem 4rem;
+    padding: 2rem 11.5rem;
+    margin-top: 2rem;
   }
   .content-wrapper {
     background: none;
     width: 50%;
     max-width: 450px;
     margin: 0;
-    padding: 0;
   }
   h1,
   .form-group label,
@@ -374,6 +383,7 @@ textarea:focus {
   }
   .post-btn {
     width: auto;
+    margin-bottom: 0;
   }
 }
 </style>

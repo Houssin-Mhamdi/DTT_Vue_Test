@@ -27,34 +27,39 @@ const emitDelete = () => {
 
 <template>
   <div class="house-card">
-    <RouterLink :to="`/details/${house.id}`" class="card-link">
-      <!-- House Image -->
-      <img :src="house.image" alt="House image" class="house-image" />
+    <!-- Overlay RouterLink -->
+    <RouterLink
+      :to="`/details/${house.id}`"
+      class="card-overlay-link"
+    ></RouterLink>
 
-      <!-- House Details -->
-      <div class="house-details">
-        <h2 class="address">{{ house.address }}</h2>
-        <p class="price">€ {{ house.price.toLocaleString("nl-NL") }}</p>
-        <p class="location">{{ house.location }}</p>
-        <div class="features">
-          <span class="feature">
-            <!-- Bed Icon Image -->
-            <img :src="bedIcon" alt="Bedrooms" class="feature-icon" />
-            {{ house.bedrooms }}
-          </span>
-          <span class="feature">
-            <!-- Bath Icon Image -->
-            <img :src="bathIcon" alt="Bathrooms" class="feature-icon" />
-            {{ house.bathrooms }}
-          </span>
-          <span class="feature">
-            <!-- Size Icon Image -->
-            <img :src="sizeIcon" alt="Size" class="feature-icon" />
-            {{ house.size }} m2
-          </span>
-        </div>
+    <!-- House Image -->
+    <img :src="house.image" alt="House image" class="house-image" />
+
+    <!-- House Details -->
+    <div class="house-details">
+      <h2 class="address">{{ house.address }}</h2>
+      <p class="price">€ {{ house.price.toLocaleString("nl-NL") }}</p>
+      <p class="location">{{ house.location }}</p>
+      <div class="features">
+        <span class="feature">
+          <!-- Bed Icon Image -->
+          <img :src="bedIcon" alt="Bedrooms" class="feature-icon" />
+          {{ house.bedrooms }}
+        </span>
+        <span class="feature">
+          <!-- Bath Icon Image -->
+          <img :src="bathIcon" alt="Bathrooms" class="feature-icon" />
+          {{ house.bathrooms }}
+        </span>
+        <span class="feature">
+          <!-- Size Icon Image -->
+          <img :src="sizeIcon" alt="Size" class="feature-icon" />
+          {{ house.size }} m2
+        </span>
       </div>
-    </RouterLink>
+    </div>
+
     <!-- Action Icons -->
     <div class="house-actions">
       <RouterLink :to="`/edit/${house.id}`">
@@ -85,6 +90,15 @@ const emitDelete = () => {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
+  position: relative;
+}
+.card-overlay-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Make sure it's above the card content but below actions */
 }
 
 .card-link {
@@ -149,6 +163,8 @@ const emitDelete = () => {
 .house-actions {
   display: flex;
   gap: 15px;
+  position: relative; /* Essential to make action buttons clickable on top of the overlay */
+  z-index: 2; /* Make sure actions are above the overlay */
 }
 
 .action-btn {
@@ -156,6 +172,8 @@ const emitDelete = () => {
   border: none;
   cursor: pointer;
   padding: 0;
+  position: relative;
+  z-index: 3;
 }
 .action-btn img {
   width: 18px;

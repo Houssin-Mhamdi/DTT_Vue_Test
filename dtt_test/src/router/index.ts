@@ -5,6 +5,7 @@ import About from "@/pages/About.vue";
 import CreateHouse from "@/pages/CreateHouse.vue";
 import DetailsHouseView from "@/pages/DetailsHouseView.vue";
 import EditListing from "@/pages/EditListing.vue";
+import NotFoundPage from "@/pages/NotFoundPage.vue";
 const routes = [
   {
     path: "/",
@@ -30,6 +31,11 @@ const routes = [
     path: "/edit/:id",
     name: "edit-listing",
     component: EditListing,
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFoundPage,
   },
 ];
 
